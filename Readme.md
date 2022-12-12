@@ -127,11 +127,93 @@ Mutation testing = let software change your code and make sure you've covered al
 
 `sys.path` shows you where python will look for modules.
 
-1h
+Trying to fix a failed test case? Tweak then run the previously failed test:
+
+```bash
+pytest --last-failed
+```
+
+## Improving tests
+
+This is a starting point.
+
+```python
+from counting import count_vowels
+import pytest  # only have to do this if we want to import extended functionality
 
 
+def test_count_vowels_simple():
+    assert count_vowels("hello") == 2
+    assert count_vowels("d3oody") == 3
 
 
+def test_count_vowels_ucase() -> None:  # FYI, tests return nothing
+    assert count_vowels("HELLO") == 2
+    assert count_vowels("D3OODY") == 3
+
+
+def test_count_vowels_int():
+    assert count_vowels("123") == 0
+
+
+def test_count_vowels_empty():
+    assert count_vowels("") == 0
+
+
+def test_count_vowels_no_vowels():
+    assert count_vowels("zzz xxc") == 0
+
+
+def test_count_vowels_list():
+    """exceptions are not returned, so you cant use Try: Except:
+    To handle this, we have to import pytest
+    We know this will fail. We know we won't get a value back.
+    We expect it to fail with AttributeError!
+    But we stay reasonable and not try handling all errors"""
+    with pytest.raises(AttributeError):
+        count_vowels(['aaab'])
+```
+
+Criticism is that this is highly repetitive. You want to DRY up this code.
+
+```python
+@pytest.mark.parametrize("word, count",
+                            [("hello", 2),
+                             ("d3oody", 3),
+                             ("HELLO", 2),
+                             ("D3OODY", 3),
+                             ("123", 0),
+                             ("", 0),
+                             ("zzz xxc", 0),
+                             ])
+
+
+def test_count_vowels_parametrizzz(word, count):
+    assert count_vowels(word) == count
+```
+
+Output:
+
+```bash
+test/test_counting.py::test_count_vowels_parametrizzz[hello-2] PASSED         [  5%] 
+test/test_counting.py::test_count_vowels_parametrizzz[d3oody-3] PASSED        [ 11%]
+test/test_counting.py::test_count_vowels_parametrizzz[HELLO-2] PASSED         [ 16%] 
+test/test_counting.py::test_count_vowels_parametrizzz[D3OODY-3] PASSED        [ 22%] 
+test/test_counting.py::test_count_vowels_parametrizzz[123-0] PASSED           [ 27%] 
+test/test_counting.py::test_count_vowels_parametrizzz[-0] PASSED              [ 33%] 
+test/test_counting.py::test_count_vowels_parametrizzz[zzz xxc-0] PASSED       [ 38%]
+test/test_counting.py::test_count_vowels_simple PASSED                        [ 44%] 
+test/test_counting.py::test_count_vowels_ucase PASSED                         [ 50%] 
+test/test_counting.py::test_count_vowels_int PASSED                           [ 55%] 
+test/test_counting.py::test_count_vowels_empty PASSED                         [ 61%] 
+test/test_counting.py::test_count_vowels_no_vowels PASSED                     [ 66%] 
+test/test_counting.py::test_count_vowels_list PASSED                          [ 72%] 
+# ...other tests as well
+```
+
+So, using the parameterized approach, you can add many new tests without adding new functions. You could even programmatically create the test tuples. This isn't good for catching exceptions, but good at testing strange or edge cases.
+
+2
 
 
 
