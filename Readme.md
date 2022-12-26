@@ -44,6 +44,12 @@ pip install pytest
 type pytest
 ```
 
+A popular pytest plugin to improve the terminal output readability is `sugar`. It's not super important, but nice. To install:
+
+```bash
+pip install pytest-sugar
+```
+
 Tests should have filenames named after function name, e.g.: `test_myfunction.py`
 
 Kick off your tests?
@@ -65,6 +71,20 @@ Other options.
 -v # verbose
 -vv # very verbose
 ```
+
+What about coverage?
+
+```bash
+pip install pytest-coverage
+```
+
+Then run it with:
+```bash
+pytest --cov --vv .  # first do this
+coverage html  # then convert output to html, i think!
+```
+
+Then navigate to the test folder that's created and examine the html file, which you can click into different files in to examine coverage.
 
 ## Testing
 
