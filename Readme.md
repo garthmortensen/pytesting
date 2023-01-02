@@ -1,6 +1,10 @@
 # Pytest
 
-Explore TDD with pytest.
+```markdown
+![latest_build](https://github.com/garthmortensen/pytesting/actions/workflows/execute_pytest.yaml/badge.svg)
+```
+
+Explore TDD with pytest and an automated build tool.
 
 ## User story
 
