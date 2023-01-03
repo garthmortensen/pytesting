@@ -1,11 +1,11 @@
-name: Python package
+name: test_runner
 
 on: [push]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, macos-latest, windows-latest]
     strategy:
       matrix:
         python-version: ["3.9", "3.10",]
