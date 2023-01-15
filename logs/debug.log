@@ -1,0 +1,6 @@
+ 20230114_210123 - root - INFO - program: started
+ 20230114_210123 - root - DEBUG - running: hello()
+ 20230114_210123 - root - DEBUG - argumnt: pony
+ 20230114_210123 - root - DEBUG - running: hello()
+ 20230114_210123 - root - DEBUG - argumnt: goat
+ 20230114_210123 - root - INFO - program: completed
