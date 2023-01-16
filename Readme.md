@@ -1,6 +1,8 @@
 # Pytest
 
-![latest_build](https://github.com/garthmortensen/pytesting/actions/workflows/execute_pytest.yaml/badge.svg)
+![latest_test](https://github.com/garthmortensen/pytesting/actions/workflows/execute_pytest.yaml/badge.svg)
+
+![latest_lint](https://github.com/garthmortensen/pytesting/actions/workflows/execute_linter.yaml/badge.svg)
 
 Explore TDD with pytest and an automated build tool.
 
@@ -235,9 +237,12 @@ test/test_counting.py::test_count_vowels_list PASSED                          [ 
 
 So, using the parameterized approach, you can add many new tests without adding new functions. You could even programmatically create the test tuples. This isn't good for catching exceptions, but good at testing strange or edge cases.
 
-2
+## Black linter
 
+Format code with Black linter before push using
 
+```bash
+black filename.py
+```
 
-
-
+This tool was mentioned in Beyond the Basics python book, around page 55.
