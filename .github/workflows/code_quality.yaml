@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run code lint checks
-        uses: psf/black@stable
+      - uses: psf/black@stable
         with:
           options: "--check --verbose"
           src: "./src"
