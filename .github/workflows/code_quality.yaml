@@ -1,0 +1,17 @@
+name: Lint
+
+on: [push, pull_request]
+
+# https://black.readthedocs.io/en/stable/integrations/github_actions.html
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run code lint checks
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          src: "./src"
+          jupyter: true
+          version: "~= 22.0"

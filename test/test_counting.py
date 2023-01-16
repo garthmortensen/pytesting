@@ -31,20 +31,21 @@ def test_count_vowels_list():
     We expect it to fail with AttributeError!
     But we stay reasonable and not try handling all errors"""
     with pytest.raises(AttributeError):
-        count_vowels(['aaab'])
+        count_vowels(["aaab"])
 
 
 # we can DRY up the tests above via parameterized tests
-@pytest.mark.parametrize("word, count",  # 1. string with comma separated variable names
-                            [("hello", 2),  # 2. list of tuples with left vs right
-                             ("d3oody", 3),
-                             ("HELLO", 2),
-                             ("D3OODY", 3),
-                             ("123", 0),
-                             ("", 0),
-                             ("zzz xxc", 0),
-                             ])
-
-
+@pytest.mark.parametrize(
+    "word, count",  # 1. string with comma separated variable names
+    [
+        ("hello", 2),  # 2. list of tuples with left vs right
+        ("d3oody", 3),
+        ("HELLO", 2),
+        ("D3OODY", 3),
+        ("123", 0),
+        ("", 0),
+        ("zzz xxc", 0),
+    ],
+)
 def test_count_vowels_parametrizzz(word, count):  # 3. variables are params for function
     assert count_vowels(word) == count  # 4. use params in the test

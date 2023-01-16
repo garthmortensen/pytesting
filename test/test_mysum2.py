@@ -45,4 +45,3 @@ def test_standard_numbers(standard_numbers):
     numbers, total = standard_numbers
     print(f"{numbers=}, {total=}")  # py3.8 f-strings with = print values
     assert mysummation(numbers) == total
-
