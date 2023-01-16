@@ -1,0 +1,14 @@
+name: workflow_lint
+
+on: [push, pull_request]
+
+# https://black.readthedocs.io/en/stable/integrations/github_actions.html
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: run Black checks
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
