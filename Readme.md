@@ -246,3 +246,32 @@ black filename.py
 ```
 
 This tool was mentioned in Beyond the Basics python book, around page 55.
+
+## Sphinx
+
+After running sphinx quickstart in made directory, edit `conf.py` by uncommenting three specific lines including:
+
+```python
+sys.path.insert(0, os.path.abspath("../../"))  # point to dir containing code
+# ...
+extensions = ["sphinx.ext.autodoc"]
+```
+
+...and add the extension (not working yet).
+
+then edit `index.srt` by adding `modules`, then run:
+
+```bash
+sphinx-apidoc.exe -o . ..
+```
+
+This generates a `.srt` file for each module.
+
+Then run (windows OS specific):
+
+```bash
+./make.bat html
+```
+
+This creates the html files.
+

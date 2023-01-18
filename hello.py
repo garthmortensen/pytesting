@@ -21,7 +21,14 @@ logging.info("program: started")
 
 
 def hello(name):
-    """returns a greeting"""
+    """
+    returns a greeting
+
+    :param name: this is a first param
+    :returns: a string that says "hello {name}!"
+    :raises keyError: raises an exception
+    """
+
     logging.debug(f"running: hello()")
     logging.debug(f"argumnt: {name}")
 
