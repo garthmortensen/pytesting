@@ -8,7 +8,7 @@ class Person(object):
         return f"{self.first_name} {self.last_name}"
 
     def greet(self):
-        return f"Hello {self.fullname()}"
+        return f"Hi {self.fullname()}"
 
     def __repr__(self):
         return f"Person, vars = {vars(self)}"

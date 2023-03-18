@@ -19,7 +19,7 @@ def test_create_person(first_name, last_name, age):
 )
 def test_greet(first_name, last_name, age):
     p = Person(first_name, last_name, age)
-    assert p.greet() == f"Hello {first_name} {last_name}"
+    assert p.greet() == f"Hi {first_name} {last_name}"
 
 
 def test_invalid_empty_person():
