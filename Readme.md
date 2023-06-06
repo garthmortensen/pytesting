@@ -6,7 +6,7 @@
 
 Explore TDD with pytest and an automated build tool.
 
-## User story
+## User story.
 
 1. As a user, I want to do something.
 2. As a user, I want to do something.
